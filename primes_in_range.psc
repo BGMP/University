@@ -28,7 +28,7 @@ proceso primes_in_range
 			finsi
 		finpara
 
-		si primo Entonces
+		si primo entonces
 			escribir i
 		finsi
 
