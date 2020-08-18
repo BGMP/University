@@ -117,6 +117,10 @@ subproceso factorial = factorial_de(target)
 		para count = 1 hasta target hacer
 			factorial = factorial * count;
 		finpara
+		
+		si (factorial == 0)
+			factorial = 1
+		finsi
 	finsi
 finsubproceso
 
