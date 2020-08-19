@@ -1,12 +1,12 @@
-#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 int inArray(const int board[], int size, int value);
+double pow(double base, double exponent);
 int randomInRange(int min, int max);
 
-int calculateNewPosition(int currentPosition, int diceNumber, int *specialPositions);
+int calculateAdvancedPositions(int currentPosition, int diceNumber, int *specialPositions);
 void drawBoard(int board[], int size);
 int handleDiceThrow(int bonus);
 
@@ -15,6 +15,10 @@ void printDeathScreen();
 void printWinScreen();
 void renderBoard(int playerPosition);
 
+// Integrantes del Grupo:
+// - José Benavente
+// - Yerko Cisternas
+// - Ismael Cabrera
 int main() {
   srand(time(NULL));
 
@@ -29,17 +33,21 @@ int main() {
 
   do {
     int diceNumber = handleDiceThrow(0);
-    playerPosition += calculateNewPosition(playerPosition, diceNumber, specialPositions);
+    int advancedPositions = calculateAdvancedPositions(playerPosition, diceNumber, specialPositions);
 
+    playerPosition += advancedPositions;
     renderBoard(playerPosition);
-    printf("[SAPO] OBTUVISTE UN %i\n", diceNumber);
+
+    printf("[SAPO] OBTUVISTE UN %i.\n", diceNumber);
+    if (advancedPositions < 0) printf("[SAPO] RETROCEDES %i, HAS TENIDO MALA SUERTE.\n", advancedPositions * -1);
+    else printf("[SAPO] AVANZAS %i, HAS TENIDO SUERTE.\n", advancedPositions);
 
     if (playerPosition == 50) {
       printWinScreen();
       return 0;
     }
 
-    printf("[SAPO] QUEDASTE EN LA POSICION %i\n\n", playerPosition);
+    printf("[SAPO] QUEDASTE EN LA POSICION %i.\n\n", playerPosition);
 
   } while (inArray(board, 50, playerPosition));
 
@@ -59,9 +67,11 @@ void printHeader() {
 }
 
 void printWinScreen() {
+  printf("===================================================================================================\n");
   printf("[SAPO] HAS LLEGADO A LA CASILLA 50!!!!!\n");
   printf("[SAPO] GANASTE EL JUEGO DEL SAPO!!!!\n");
   printf("[SAPO] GRACIAS POR JUGAR!!!!!!!!!!!!!!!!!!!!!!!!!");
+  printf("===================================================================================================\n");
 }
 
 void printDeathScreen() {
@@ -73,25 +83,22 @@ void printDeathScreen() {
 }
 
 int handleDiceThrow(int bonus) {
-  if (bonus) printf(">> Presiona ENTER para lanzar el BONUS <<\n");
-  else printf(">> Presiona ENTER para lanzar el dado <<\n");
+  if (bonus) {
+    printf("[SAPO] => LANZAS DE NUEVO! HAS OBTENIDO UNA BONIFICACION.\n");
+    printf(">>> Presiona ENTER para lanzar el BONUS <<<\n");
+  } else printf(">> Presiona ENTER para lanzar el dado <<\n");
 
   getchar();
   int number = randomInRange(1, 6);
   return number;
 }
 
-int calculateNewPosition(int currentPosition, int diceNumber, int *specialPositions) {
+int calculateAdvancedPositions(int currentPosition, int diceNumber, int *specialPositions) {
   if (currentPosition % 2 == 0) {
     if (inArray(specialPositions, 5, currentPosition) && pow(2, diceNumber) == currentPosition) {
-      printf("[SAPO] => Lanzas de nuevo! Has obtenido una bonificacion.\n");
       return diceNumber + handleDiceThrow(1);
-    }
-
-    printf("[SAPO] Avanzas %i, has realizado un lanzamiento normal.\n", diceNumber);
-    return diceNumber;
+    } else return diceNumber;
   } else {
-    printf("[SAPO] Retrocedes %i, has tenido mala suerte.\n", diceNumber);
     return -diceNumber;
   }
 }
@@ -113,7 +120,16 @@ void drawBoard(int board[], int size) {
   }
 }
 
+double pow(double base, double exponent) {
+  double result = 1;
+  for (int i = 0; i < exponent; i++) {
+    result *= base;
+  }
+  return result;
+}
+
 void renderBoard(int playerPosition) {
+  // Experimental
   int boardSquares = 53;
   int boardRows = 3;
   int squaresPerRow = boardSquares / boardRows;
@@ -142,17 +158,17 @@ void renderBoard(int playerPosition) {
             }
 
             break;
-            case 1:
-              if (numberIndex == playerPosition) printf("| %s ", "TU");
-              else {
-                if (numberIndex > 9) printf("| %i ", numberIndex);
-                else printf("| 0%i ", numberIndex);
-              }
-              numberIndex++;
+          case 1:
+            if (numberIndex == playerPosition) printf("| %s ", "TU");
+            else {
+              if (numberIndex > 9) printf("| %i ", numberIndex);
+              else printf("| 0%i ", numberIndex);
+            }
+            numberIndex++;
 
-              break;
-              default:
-                break;
+            break;
+          default:
+            break;
         }
       }
 
