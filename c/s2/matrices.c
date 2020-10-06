@@ -25,7 +25,14 @@ int main() {
 
   int count = 0;
   for (int i = 0; i < dimension; i++) {
-    matrix[i % columns == columns - 1 ? count++ : count][i % columns] = rand() % 50;
+    int row = count;
+    int column = i % columns;
+
+    matrix[row][column] = rand() % 50;
+
+    if (i % columns == columns - 1) {
+      count++;
+    }
   }
 
   printf("\nMatriz de orden (%ix%i) generada:\n\n", rows, columns);
