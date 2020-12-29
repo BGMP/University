@@ -24,7 +24,7 @@ typedef struct University {
 
 University * university;
 
-int readInt(double min, double max);
+double readInt(double min, double max);
 double calcClassAverage(Class * class);
 Student * findMaxAverageStudent(Class * class);
 
@@ -66,7 +66,7 @@ int main() {
             student->age = studentAge;
 
             printf("Ingrese el promedio del estudiante %i:\n", j + 1);
-            int studentAverage = readInt(0.0, 7.0);
+            double studentAverage = readInt(0.0, 7.0);
             student->average = studentAverage;
 
             class->students[j] = student;
@@ -81,7 +81,7 @@ int main() {
         Class * class = university->classes[j];
         printf("========================\n");
         printf("Asignatura: %s\n", class->name);
-        printf("Promedio general: %f\n", calcClassAverage(class));
+        printf("Promedio general: %.2f\n", calcClassAverage(class));
         printf("========================\n");
     }
 
@@ -103,7 +103,7 @@ double calcClassAverage(Class * class) {
         sum += student->average;
     }
 
-    return sum / class->studentCount;
+    return sum / ((double) class->studentCount);
 }
 
 Student * findMaxAverageStudent(Class * class) {
@@ -121,7 +121,7 @@ Student * findMaxAverageStudent(Class * class) {
     return match;
 }
 
-int readInt(double min, double max) {
+double readInt(double min, double max) {
     float input;
     int status = scanf("%f", &input);
     int garbage;
