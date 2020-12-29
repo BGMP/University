@@ -28,8 +28,6 @@ double readDouble(double min, double max);
 double calcClassAverage(Class * class);
 Student * findMaxAverageStudent(Class * class);
 
-// José Benavente
-// 20.779.165-2
 int main() {
     university = malloc(sizeof(University));
 
