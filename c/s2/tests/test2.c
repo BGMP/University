@@ -40,12 +40,12 @@ int main() {
     for (; i < classesAmount; i++) {
         Class * class = malloc(sizeof(Class));
 
-        printf("Ingrese el nombre de la clase %i:\n", i + 1);
+        printf("Ingrese el nombre de la asignatura %i:\n", i + 1);
         char * className = malloc(sizeof(char) * MAX_BUFFER);
         scanf(" %s", className);
         class->name = className;
 
-        printf("Ingrese el codigo de la clase %i:\n", i + 1);
+        printf("Ingrese el codigo de la asignatura %i:\n", i + 1);
         int classCode = readInt(-1, -1);
         class->code = classCode;
 
@@ -80,7 +80,7 @@ int main() {
     for (; j < university->classCount; j++) {
         Class * class = university->classes[j];
         printf("========================\n");
-        printf("Asignatura: %s\n", class->name);
+        printf("Asignatura: %s (Codigo: %i)\n", class->name, class->code);
         printf("Promedio general: %.2f\n", calcClassAverage(class));
         printf("========================\n");
     }
@@ -89,8 +89,12 @@ int main() {
     for (; k < university->classCount; k++) {
         Class * class = university->classes[k];
         printf("========================\n");
-        printf("Asignatura: %s\n", class->name);
-        printf("Alumno con mejor Promedio: %s\n", findMaxAverageStudent(class)->name);
+        printf("Asignatura: %s (Codigo: %i)\n", class->name, class->code);
+        Student * maxAverageStudent = findMaxAverageStudent(class);
+        printf("Mejor Promedio:\n");
+        printf("- Nombre: %s\n", maxAverageStudent->name);
+        printf("- Edad: %i\n", maxAverageStudent->age);
+        printf("- Promedio: %.2f\n", maxAverageStudent->average);
         printf("========================\n");
     }
 }
