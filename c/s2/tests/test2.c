@@ -24,7 +24,7 @@ typedef struct University {
 
 University * university;
 
-double readInt(double min, double max);
+double readDouble(double min, double max);
 double calcClassAverage(Class * class);
 Student * findMaxAverageStudent(Class * class);
 
@@ -34,7 +34,7 @@ int main() {
     university = malloc(sizeof(University));
 
     printf("Ingrese la cantidad de asignaturas:\n");
-    int classesAmount = readInt(1, -1);
+    int classesAmount = readDouble(1, -1);
 
     int i = 0;
     for (; i < classesAmount; i++) {
@@ -46,11 +46,11 @@ int main() {
         class->name = className;
 
         printf("Ingrese el codigo de la asignatura %i:\n", i + 1);
-        int classCode = readInt(-1, -1);
+        int classCode = readDouble(-1, -1);
         class->code = classCode;
 
         printf("Ingrese la cantidad de alumnos (Maximo 80):\n");
-        int studentCount = readInt(1, MAX_STUDENTS);
+        int studentCount = readDouble(1, MAX_STUDENTS);
         class->studentCount = studentCount;
 
         int j = 0;
@@ -62,11 +62,11 @@ int main() {
             student->name = studentName;
 
             printf("Ingrese la edad del estudiante %i:\n", j + 1);
-            int studentAge = readInt(0, -1);
+            int studentAge = readDouble(0, -1);
             student->age = studentAge;
 
             printf("Ingrese el promedio del estudiante %i:\n", j + 1);
-            double studentAverage = readInt(0.0, 7.0);
+            double studentAverage = readDouble(0.0, 7.0);
             student->average = studentAverage;
 
             class->students[j] = student;
@@ -90,7 +90,6 @@ int main() {
         Class * class = university->classes[k];
         printf("========================\n");
         printf("Asignatura: %s (Codigo: %i)\n", class->name, class->code);
-
         Student * maxAverageStudent = findMaxAverageStudent(class);
         printf("Mejor Promedio:\n");
         printf("- Nombre: %s\n", maxAverageStudent->name);
@@ -126,7 +125,7 @@ Student * findMaxAverageStudent(Class * class) {
     return match;
 }
 
-double readInt(double min, double max) {
+double readDouble(double min, double max) {
     float input;
     int status = scanf("%f", &input);
     int garbage;
