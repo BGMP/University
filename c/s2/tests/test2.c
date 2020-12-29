@@ -90,6 +90,7 @@ int main() {
         Class * class = university->classes[k];
         printf("========================\n");
         printf("Asignatura: %s (Codigo: %i)\n", class->name, class->code);
+
         Student * maxAverageStudent = findMaxAverageStudent(class);
         printf("Mejor Promedio:\n");
         printf("- Nombre: %s\n", maxAverageStudent->name);
