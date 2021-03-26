@@ -5,7 +5,7 @@ A few basic exercises we were assigned during the first semester of classes.
   
   1. Optionals: A few optional assignments we were given.
   2. Projects:
-      * `forg.c`: A small commandline game were you press enter to roll a dice and advance. It also renders a board.
+      * `frog.c`: A small commandline game were you press enter to roll a dice and advance. It also renders a board.
   3. Finals: Some exercises from the final exam we had.
   
 ## Semester 2
