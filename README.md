@@ -1,8 +1,5 @@
 # University
-
-## Table of contents
-
-### Semester 1
+## Semester 1
 
 A few basic exercises we were assigned during the first semester of classes.
   
@@ -11,7 +8,7 @@ A few basic exercises we were assigned during the first semester of classes.
       * `forg.c`: A small commandline game were you press enter to roll a dice and advance. It also renders a board.
   3. Finals: Some exercises from the final exam we had.
   
-### Semester 2
+## Semester 2
 
 Some more exercises from the second semester, this time with more project assignments.
 
@@ -22,7 +19,7 @@ Some more exercises from the second semester, this time with more project assign
        can filter from row to row when doing so.
        * `word_search.c`: A word search, were you input the words and it prints out the whole thing in the end.
   
-### Semester 3
+## Semester 3
 
 Nothing much yet, just a diagnosis we were assigned.
     
