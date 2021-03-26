@@ -72,6 +72,10 @@ Cinema *cinema;                                         // El cine, declarado de
  * Room * room = malloc(sizeof(Room));
  * room->totalProfit = 0;
  *
+ * Integrantes:
+ *  - José Benavente
+ *  - Teresa Vidal
+ *
 */
 int main() {
     cinema = malloc(sizeof(Cinema));                    // Alojamos la memoria necesaria para el puntero cinema
@@ -159,7 +163,7 @@ void sellTickets(Room *room, int amountToSell) {
         int valid = 0;
 
         do {
-            printRoomDistribution(room, 1, room->rows);
+            printRoomDistribution(room, 'A', (char) (64 + room->rows));
 
             char seatCode[3];                           // El código del asiento, en el formato A1, B2, etc.
             printf("Ingrese el asiento que desea vender (e.g A1):\n");

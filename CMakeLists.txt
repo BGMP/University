@@ -4,16 +4,16 @@ project(University C)
 set(CMAKE_C_STANDARD 99)
 
 # Semester 1
-add_executable(S1Optional1 semester1/optional/optional1.c)
-add_executable(S1Optional2 semester1/optional/optional2.c)
-add_executable(S1Optional3 semester1/optional/optional3.c)
-add_executable(S1Optional4 semester1/optional/optional4.c)
+add_executable(S1Optional1 semester1/optionals/optional1.c)
+add_executable(S1Optional2 semester1/optionals/optional2.c)
+add_executable(S1Optional3 semester1/optionals/optional3.c)
+add_executable(S1Optional4 semester1/optionals/optional4.c)
 
-add_executable(S1Final1 semester1/final/final1.c)
-add_executable(S1Final2 semester1/final/final2.c)
-add_executable(S1Final3 semester1/final/final3.c)
+add_executable(S1Final1 semester1/finals/final1.c)
+add_executable(S1Final2 semester1/finals/final2.c)
+add_executable(S1Final3 semester1/finals/final3.c)
 
-add_executable(Frog semester1/frog.c)
+add_executable(S1Frog semester1/projects/frog.c)
 
 # Semester 2
 add_executable(S2Matrices semester2/exercises/matrices.c)
