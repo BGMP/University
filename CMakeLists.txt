@@ -24,4 +24,4 @@ add_executable(S2WordSearch semester2/projects/word_search.c)
 add_executable(S2Test1 semester2/tests/test1.c)
 
 # Semester 3
-add_executable(S3Diagnosis semester3/diagnosis/diagnosis1.c)
+add_executable(S3Diagnosis semester3/diagnosis/diagnosis.c)
