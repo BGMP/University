@@ -25,3 +25,9 @@ add_executable(S2Test1 semester2/tests/test1.c)
 
 # Semester 3
 add_executable(S3Diagnosis semester3/diagnosis/diagnosis.c)
+
+# other
+add_executable(Pairs other/pairs.c)
+add_executable(One other/test2/1.c)
+add_executable(Two other/test2/2.c)
+add_executable(Three other/test2/3.c)
