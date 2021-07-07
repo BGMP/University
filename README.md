@@ -3,8 +3,10 @@
 ## Branches
 This repository is divided in branches for each programming language.
 
-  * c
-  * java
+  * [c](https://github.com/BGMP/University/tree/c)
+  * [java](https://github.com/BGMP/University/tree/java)
+
+# C
 
 ## Semester 1
 
