@@ -1,4 +1,11 @@
 # University
+
+## Branches
+This repository is divided in branches for each programming language.
+
+  * c
+  * java
+
 ## Semester 1
 
 A few basic exercises we were assigned during our first semester of classes.
